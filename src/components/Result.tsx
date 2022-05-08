@@ -29,8 +29,6 @@ const Result = (props: ResultProps) => {
         )}
       </span>
       <Button
-        bgColor='blue'
-        textColor='white'
         text='Generate'
         mutate={props.mutate}
       />
