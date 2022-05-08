@@ -1,8 +1,9 @@
+import type { IData } from '../../components/Result';
 import { apiClient } from '../axios/client';
 
-export const fetcher = async (url: string) => {
-  const { data } = await apiClient.get(url).catch((err) => {
-    throw err;
+export const fetcher = async (url: string): Promise<IData> => {
+  const { data } = await apiClient.get(url).catch((error) => {
+    throw error;
   });
   return data;
 };

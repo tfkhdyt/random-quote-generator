@@ -1,28 +1,26 @@
-import { KeyedMutator } from 'swr/dist/types';
-import { IData } from './Result';
+import type { KeyedMutator } from 'swr/dist/types';
 
-interface ButtonProps {
+import type { IData } from './Result';
+
+type ButtonProps = {
   mutate: KeyedMutator<IData>;
   text: string;
-}
+};
 
-const Button = (props: ButtonProps) => {
+function Button(props: ButtonProps): JSX.Element {
   return (
     <button
-      className={`relative inline-block overflow-hidden border px-4 py-3 border-blue-600 group mt-1 rounded focus:outline-none focus:ring`}
+      type='button'
+      className='group relative mt-1 inline-block overflow-hidden rounded border border-blue-600 px-4 py-3 focus:outline-none focus:ring'
       onClick={() => props.mutate()}
     >
-      <span
-        className={`absolute inset-y-0 left-0 w-[2px] transition-all bg-blue-600 group-hover:w-full group-active:bg-blue-500`}
-      ></span>
+      <span className='absolute inset-y-0 left-0 w-[2px] bg-blue-600 transition-all group-hover:w-full group-active:bg-blue-500' />
 
-      <span
-        className={`relative text-sm font-medium text-blue-600 transition-colors group-hover:text-white`}
-      >
+      <span className='relative text-sm font-medium text-blue-600 transition-colors group-hover:text-white'>
         {props.text}
       </span>
     </button>
   );
-};
+}
 
 export default Button;
