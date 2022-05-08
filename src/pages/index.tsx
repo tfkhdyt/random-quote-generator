@@ -20,8 +20,8 @@ const Home: NextPage = () => {
         <meta name='description' content='Random Quote Generator' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <div className='grid place-items-center min-h-screen'>
-        <div className='relative overflow-hidden container max-w-md px-5'>
+      <div className='grid min-h-screen place-items-center'>
+        <div className='container relative max-w-md overflow-hidden px-5'>
           <Card
             title='Random Quote Generator'
             description='A web app that will generate a random quote for you, This web app was built using TypeScript. When the "Generate" button is clicked, then a new quote will appear.'

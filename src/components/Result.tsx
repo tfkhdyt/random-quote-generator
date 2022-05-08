@@ -14,18 +14,18 @@ interface ResultProps {
 const Result = (props: ResultProps) => {
   return (
     <div className='p-4'>
-      <div className='font-light leading-relaxed italic'>
+      <div className='font-light italic leading-relaxed'>
         {props.data ? (
           props.data?.content
         ) : (
-          <div className='bg-slate-200 animate-pulse h-4 w-32 rounded'></div>
+          <div className='h-4 w-32 animate-pulse rounded bg-slate-200'></div>
         )}
       </div>
-      <span className='text-sm my-2 block font-bold tracking-tight'>
+      <span className='my-2 block text-sm font-bold tracking-tight'>
         {props.data ? (
           `~ ${props.data?.author}`
         ) : (
-          <div className='bg-slate-400 animate-pulse h-4 w-16 rounded'></div>
+          <div className='h-4 w-16 animate-pulse rounded bg-slate-400'></div>
         )}
       </span>
       <Button

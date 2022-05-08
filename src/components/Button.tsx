@@ -11,7 +11,7 @@ interface ButtonProps {
 const Button = (props: ButtonProps) => {
   return (
     <button
-      className={`relative inline-block px-4 py-3 overflow-hidden border border-${props.bgColor}-600 group focus:outline-none focus:ring mt-1 rounded`}
+      className={`relative inline-block overflow-hidden border px-4 py-3 border-${props.bgColor}-600 group mt-1 rounded focus:outline-none focus:ring`}
       onClick={() => props.mutate()}
     >
       <span
