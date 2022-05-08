@@ -15,7 +15,7 @@ type ResultProps = {
 function Result(props: ResultProps): JSX.Element {
   return (
     <div className='p-4'>
-      <div className='font-light italic leading-relaxed'>
+      <div className='italic leading-relaxed'>
         {props.data ? (
           props.data?.content
         ) : (
