@@ -22,7 +22,8 @@ function Select(): JSX.Element {
       p-3
       text-sm
       text-gray-700
-      transition
+      transition-all
+      duration-500
       ease-in-out
       focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none'
       aria-label='Default select example'

@@ -21,7 +21,7 @@ function Result(): JSX.Element {
 
   const variants = {
     initial: {
-      opacity: 0,
+      opacity: data ? 0 : 1,
     },
     in: {
       opacity: 1,
