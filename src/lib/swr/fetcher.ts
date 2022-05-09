@@ -1,4 +1,3 @@
-// import type { IData } from '../../components/Result';
 import { apiClient } from '../axios/client';
 
 export type Tag = {

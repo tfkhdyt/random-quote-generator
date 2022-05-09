@@ -12,20 +12,7 @@ function Select(): JSX.Element {
 
   return (
     <select
-      className='form-select flex
-      appearance-none
-      rounded
-      border
-      border-solid
-      border-gray-300
-      bg-white
-      p-3
-      text-sm
-      text-gray-700
-      transition-all
-      duration-500
-      ease-in-out
-      focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none'
+      className='form-select flex appearance-none rounded border border-solid border-gray-300 bg-white p-3 text-sm text-gray-700 transition-all duration-500 ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none'
       aria-label='Default select example'
       onChange={(e: ChangeEvent<HTMLSelectElement>) =>
         dispatch(setActiveTag(e.target.value))
