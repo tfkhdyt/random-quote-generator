@@ -1,18 +1,15 @@
 import Head from 'next/head';
-import useSWRImmutable from 'swr/immutable';
 
+// import { useSelector } from 'react-redux';
+// import useSWRImmutable from 'swr/immutable';
 import Card from '../components/Card';
 import Footer from '../components/Footer';
-import type { IData } from '../components/Result';
+// import type { IData } from '../components/Result';
 import Result from '../components/Result';
-import { fetcher } from '../lib/swr/fetcher';
+// import { fetcher } from '../lib/swr/fetcher';
+// import type { RootState } from '../redux/store';
 
 function Home(): JSX.Element {
-  const { data, error, mutate } = useSWRImmutable<IData>('/random', fetcher, {
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false,
-  });
-
   // if (error) {console.error(error);}
 
   return (
@@ -28,19 +25,7 @@ function Home(): JSX.Element {
             title='Random Quote Generator'
             description='A web app that will generate a random quote for you, This web app was built using TypeScript. When the "Generate" button is clicked, then a new quote will appear.'
           />
-          <Result
-            data={
-              error
-                ? {
-                    author: 'Author Fetching Error',
-                    content: 'Quote Fetching Error',
-                  }
-                : data
-                ? data
-                : null
-            }
-            mutate={mutate}
-          />
+          <Result />
           <Footer />
         </div>
       </div>

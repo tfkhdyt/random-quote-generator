@@ -6,7 +6,7 @@ export default function Footer(): JSX.Element {
       <p>A fork by</p>
       <Link href='https://tfkhdyt.my.id'>
         <a
-          className='ml-1 bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 bg-clip-text font-bold text-transparent'
+          className='ml-1 w-fit bg-gradient-to-r from-blue-600 to-sky-400 bg-clip-text font-bold text-transparent'
           target='_blank'
         >
           ./tfkhdyt

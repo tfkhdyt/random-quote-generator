@@ -1,35 +1,50 @@
-import type { KeyedMutator } from 'swr/dist/types';
+import { useSelector } from 'react-redux';
+import useSWRImmutable from 'swr/immutable';
 
+import { fetcher } from '../lib/swr/fetcher';
+import type { RootState } from '../redux/store';
 import Button from './Button';
+import Select from './Select';
 
 export type IData = {
   content: string;
   author: string;
 };
 
-type ResultProps = {
-  data?: IData | null;
-  mutate: KeyedMutator<IData>;
-};
-
-function Result(props: ResultProps): JSX.Element {
+function Result(): JSX.Element {
+  const { activeTag } = useSelector((state: RootState) => state.tags);
+  const { data, mutate } = useSWRImmutable<IData>(
+    `/random${activeTag === '' ? '' : `?tags=${activeTag}`}`,
+    fetcher,
+    {
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    }
+  );
   return (
     <div className='p-4'>
       <div className='italic leading-relaxed'>
-        {props.data ? (
-          props.data?.content
+        {data ? (
+          data?.content
         ) : (
-          <div className='h-4 w-32 animate-pulse rounded bg-slate-200' />
+          <div className='space-y-3'>
+            <div className='h-4 w-full animate-pulse rounded bg-slate-200' />
+            <div className='h-4 w-5/6 animate-pulse rounded bg-slate-200' />
+            <div className='h-4 w-3/6 animate-pulse rounded bg-slate-200' />
+          </div>
         )}
       </div>
       <span className='my-2 block text-sm font-bold tracking-tight'>
-        {props.data ? (
-          `~ ${props.data?.author}`
+        {data ? (
+          `~ ${data?.author}`
         ) : (
           <div className='h-4 w-16 animate-pulse rounded bg-slate-400' />
         )}
       </span>
-      <Button text='Generate' mutate={props.mutate} />
+      <div className='flex items-stretch space-x-2 pt-2'>
+        <Button text='Generate' mutate={mutate} />
+        <Select />
+      </div>
     </div>
   );
 }
